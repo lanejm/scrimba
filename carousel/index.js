@@ -35,3 +35,5 @@ function moveToPrevSlide() {
     
     slides[slidePosition].classList.add("carousel-item-visible");
 }
+
+//make slides auto
