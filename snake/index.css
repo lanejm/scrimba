@@ -19,6 +19,8 @@ html, body {
     height: 200px;
     border: solid 8px black;
     justify-content: center;
+    background-image: url("images/checkerBackground.jpeg");
+    background-size: 100%;
 }
 
 .square {
