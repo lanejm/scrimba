@@ -65,6 +65,7 @@ strong {
     color: #1792d2;
     font-size: .75rem;
     margin: 0;
+    text-transform: uppercase;
 }
 
 .article-title {
@@ -80,6 +81,7 @@ strong {
     color: #1792d2;
     text-decoration: none;
     font-weight: 700;
+    text-transform: lowercase;
 }
 
 .article-read-more:hover,
