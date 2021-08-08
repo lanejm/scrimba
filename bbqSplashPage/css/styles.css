@@ -25,6 +25,7 @@ h1 + p {
 
 h2 {
     font-size: 1.3125rem;
+    margin: 0;
 
 }
 
@@ -33,6 +34,7 @@ h2 + p {
     font-weight: 900;
     font-size: 1rem;
     text-transform: uppercase;
+    margin-top: 0;
 }
 
 .top-text {
@@ -59,6 +61,8 @@ strong {
 .intro {
     background-color: #404040;
     background-image: url(../images/dark-ribs.jpg);
+    background-size: cover;
+    background-position: center;
     padding: 0 .25em 1em;
     display: flex;
     flex-direction: column;
@@ -69,4 +73,31 @@ strong {
    main-content section 
    ================= */
 
-   
+
+.main-content {
+    padding: 2em 1em;
+}
+
+/* =================
+   media queries
+   ================= */
+
+@media (min-width: 500px) {
+    body {
+        font-size: 1.125rem;
+        display: flex;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2, 
+    h1 + p {
+        font-size: 1.75rem;
+    }
+
+    .intro, .main-content {
+        width: 50%;
+    }
+}
