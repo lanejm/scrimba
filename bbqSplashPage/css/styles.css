@@ -87,16 +87,11 @@ strong {
     padding: 2em 1em;
 }
 
-.container {
+.intro > *, 
+.main-content > * {
     max-width: 400px;
-    margin: 0 auto;
-}
-
-.container-intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* =================
@@ -127,9 +122,5 @@ strong {
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
-
-    .container-intro {
-        height: 100%;
     }
 }
