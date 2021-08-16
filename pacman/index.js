@@ -156,9 +156,19 @@ ghosts.forEach((ghost) =>
   squares[ghost.startIndex].classList.add(ghost.className)
 );
 
+//move the ghosts
 ghosts.forEach((ghost => moveGhost(ghost)))
 
 function moveGhost(ghost) {
   const directions = [+1, -1, -width, +width]
   let direction = directions[Math.floor(Math.random() * directions.length)]
+
+  ghost.timerId = setInterval(function() {
+    //remove any ghost
+    squares[ghost.currentIndex].classList.remove(ghost.className)
+    //add direction to current Index
+    ghost.currentIndex += direction
+    //add ghost class
+    squares[ghost.currentIndex].classList.add(ghost.className)
+  }, ghost.speed)
 }
