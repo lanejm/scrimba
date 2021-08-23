@@ -21,9 +21,18 @@ document.getElementById("new-post").addEventListener("submit", function (e) {
     title: postTitle,
     body: postBody,
   };
-  fetch("https://apis.scrimba.com/jsonplaceholder/posts", { 
+  fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
     method: "POST",
     body: JSON.stringify(data),
-    headers: {'Content-Type': 'application/json'}
-   });
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((post) => {
+      document.getElementById("blog-list").innerHTML = `
+        <h3>${post.title}</h3>
+        <p>${post.body}</p>
+        <hr />
+        ${document.getElementById("blog-list").innerHTML}
+      `;
+    });
 });
