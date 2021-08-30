@@ -10,3 +10,12 @@ function handleClick() {
 }
 
 document.getElementById("new-deck").addEventListener('click', handleClick)
+
+function drawCards() {
+    fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+}
+
+document.getElementById('draw').addEventListener('click', drawCards)
