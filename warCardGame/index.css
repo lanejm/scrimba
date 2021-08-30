@@ -1,5 +1,32 @@
-body {
+html, body {
+    margin: 0;
+    padding: 0;
     background-image:url(./img/table.png);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #fff100;
+    color: black;
+    cursor: pointer;
+    border: none;
+    
+}
+
+button#new-deck {
+    align-self: flex-start;
+    padding: 5px;
+}
+
+button.draw {
+    font-size: 1.1em;
+    padding: 5px;
 }
