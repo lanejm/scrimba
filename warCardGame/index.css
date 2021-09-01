@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 button {
@@ -29,4 +30,16 @@ button#new-deck {
 button.draw {
     font-size: 1.1em;
     padding: 5px;
+    align-self: stretch;
+}
+
+div.card-slot {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 120px;
+    width: calc(120px * 5 /7);
+}
+
+div.card-slot:nth-of-type(1) {
+    margin-bottom: 50px;
 }
