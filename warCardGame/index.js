@@ -17,8 +17,11 @@ function drawCards() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data.cards);
-      showCards.innerHTML = `<img src=${data.cards[0].image} />
-    <img src=${data.cards[1].image} />`;
+      document.getElementById("show-cards").children[0].innerHTML = `
+      <img src=${data.cards[0].image} class="card" />`;
+
+      document.getElementById("show-cards").children[1].innerHTML = `
+      <img src=${data.cards[1].image} class="card" />`;
     });
 }
 
