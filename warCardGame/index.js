@@ -16,11 +16,10 @@ function drawCards() {
   fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.cards);
-      document.getElementById("show-cards").children[0].innerHTML = `
+      showCards.children[0].innerHTML = `
       <img src=${data.cards[0].image} class="card" />`;
 
-      document.getElementById("show-cards").children[1].innerHTML = `
+      showCards.children[1].innerHTML = `
       <img src=${data.cards[1].image} class="card" />`;
     });
 }
