@@ -25,3 +25,18 @@ function drawCards() {
 }
 
 document.getElementById("draw").addEventListener("click", drawCards);
+
+
+function handWinner(card1, card2) {
+  const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9","10", "JACK", "QUEEN", "KING", "ACE"] 
+  const card1ValueIndex = valueOptions.indexOf(card1.value)
+  const card2ValueIndex = valueOptions.indexOf(card2.value)
+
+  if (card1ValueIndex > card2ValueIndex) {
+    console.log("player 1 wins")
+  } else if (card2ValueIndex > card1ValueIndex) {
+    console.log("player 2 wins")
+  } else {
+    console.log("we tied")
+  }
+}
