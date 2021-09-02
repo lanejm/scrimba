@@ -1,6 +1,7 @@
 let deckId = "";
 const showCards = document.getElementById("show-cards");
 const gameWinnerText = document.getElementById("winner-text")
+const remainingCards = document.getElementById("cards-remaining")
 
 function handleClick() {
   fetch("https://deckofcardsapi.com/api/deck/new/shuffle/")
@@ -25,6 +26,7 @@ function drawCards() {
 
       const winnerText = handWinner(data.cards[0], data.cards[1])
       gameWinnerText.innerHTML = winnerText
+      remainingCards.innerHTML = data.remaining
     });
 }
 

@@ -48,3 +48,13 @@ div.card-slot:nth-of-type(1) {
 img.card {
     width: 100%;
 }
+
+div.top {
+    display: flex;
+    align-self: flex-start;
+}
+
+div.top > h3 {
+    margin: 0;
+    margin-left: 10px;
+}

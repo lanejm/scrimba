@@ -3,11 +3,16 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <button id="new-deck">Get New Deck</button>
+    <div class="top">
+      <button id="new-deck">Get New Deck</button>
+      <h3>Cards Remaining:</h3>
+      <h3 id="cards-remaining">52</h3>
+    </div>
+    
     <h2 id="winner-text">Game of War</h2>
     <div id="show-cards">
-        <div class="card-slot"></div>
-        <div class="card-slot"></div>
+      <div class="card-slot"></div>
+      <div class="card-slot"></div>
     </div>
     <button id="draw" class="draw">Draw Cards</button>
     <script src="index.js"></script>
