@@ -1,5 +1,6 @@
 let deckId = "";
 const showCards = document.getElementById("show-cards");
+const gameWinnerText = document.getElementById("winner-text")
 
 function handleClick() {
   fetch("https://deckofcardsapi.com/api/deck/new/shuffle/")
@@ -21,6 +22,9 @@ function drawCards() {
 
       showCards.children[1].innerHTML = `
       <img src=${data.cards[1].image} class="card" />`;
+
+      const winnerText = handWinner(data.cards[0], data.cards[1])
+      gameWinnerText.innerHTML = winnerText
     });
 }
 
@@ -33,10 +37,10 @@ function handWinner(card1, card2) {
   const card2ValueIndex = valueOptions.indexOf(card2.value)
 
   if (card1ValueIndex > card2ValueIndex) {
-    console.log("player 1 wins")
+    return "Computer wins!"
   } else if (card2ValueIndex > card1ValueIndex) {
-    console.log("player 2 wins")
+    return "You win!"
   } else {
-    console.log("we tied")
+    return "War!"
   }
 }
