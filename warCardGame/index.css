@@ -58,3 +58,10 @@ div.top > h3 {
     margin: 0;
     margin-left: 10px;
 }
+
+button:disabled {
+    cursor: not-allowed;
+    background: yellow;
+    opacity: .75;
+    color: gray;
+}
