@@ -39,6 +39,7 @@ function drawCards() {
         gameWinnerText.textContent = "You win this round!";
         drawButton.disabled = true;
       } else {
+        gameWinnerText.textContent = "It's a tie!"
         drawButton.disabled = false;
       }
     });
