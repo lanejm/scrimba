@@ -3,6 +3,10 @@ const showCards = document.getElementById("show-cards");
 const gameWinnerText = document.getElementById("winner-text");
 const remainingCards = document.getElementById("cards-remaining");
 const drawButton = document.getElementById("draw");
+let computerScore = 0;
+let myScore = 0;
+const upperCard = document.getElementById('upper-card')
+const lowerCard = document.getElementById('lower-card')
 
 function handleClick() {
   fetch("https://deckofcardsapi.com/api/deck/new/shuffle/")
@@ -58,8 +62,12 @@ function handWinner(card1, card2) {
   const card2ValueIndex = valueOptions.indexOf(card2.value);
 
   if (card1ValueIndex > card2ValueIndex) {
+    computerScore ++
+    upperCard.textContent = `Computer score: ${computerScore}`
     return "Computer wins!";
   } else if (card2ValueIndex > card1ValueIndex) {
+    myScore ++
+    lowerCard.textContent = `My score: ${myScore}`
     return "You win!";
   } else {
     return "War!";

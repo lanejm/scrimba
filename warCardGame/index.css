@@ -42,7 +42,7 @@ div.card-slot {
 }
 
 div.card-slot:nth-of-type(1) {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 img.card {
@@ -64,4 +64,8 @@ button:disabled {
     background: yellow;
     opacity: .75;
     color: gray;
+}
+
+h2 {
+    margin: 10px;
 }
