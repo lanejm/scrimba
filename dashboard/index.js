@@ -2,6 +2,8 @@ imageAuthor = document.getElementById("image-author");
 cryptoInfo = document.getElementById("crypto");
 cryptoTop = document.getElementById("crypto-top");
 
+currentTime = document.getElementById("time");
+
 fetch(
   "https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature"
 )
@@ -26,6 +28,17 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin") //replace this with foo
     <p>🎯: $${data.market_data.current_price.usd}</p>
     <p>👆: $${data.market_data.high_24h.usd}</p>
     <p>👇: $${data.market_data.low_24h.usd}</p>
-    `
+    `;
   })
   .catch((err) => console.log(err));
+
+function updateClock() {
+  let date = new Date();
+  time = date.toLocaleTimeString("en-us", { hour12: false, timeStyle: "short"});
+
+  currentTime.textContent = time
+
+  setTimeout(updateClock, 1000)
+;
+}
+updateClock()
