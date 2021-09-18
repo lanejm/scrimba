@@ -1,6 +1,7 @@
 imageAuthor = document.getElementById("image-author");
 cryptoInfo = document.getElementById("crypto");
 cryptoTop = document.getElementById("crypto-top");
+weatherInfo = document.getElementById("weather")
 
 currentTime = document.getElementById("time");
 
@@ -42,3 +43,23 @@ function updateClock() {
 ;
 }
 updateClock()
+
+
+navigator.geolocation.getCurrentPosition((position) => {
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
+    .then(res => {
+        if (!res.ok) {
+            throw Error("Weather data not available")
+        }
+        return res.json()
+    })
+    .then(data => {
+        weatherInfo.innerHTML = `
+        <img src=http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png />
+        <p>${Math.round(data.main.temp)}ºF</p>
+        <p>${data.name}</p>
+        `
+    })
+    .catch(err => console.log(err))
+})
+
