@@ -1,7 +1,9 @@
 imageAuthor = document.getElementById("image-author");
 cryptoInfo = document.getElementById("crypto");
 cryptoTop = document.getElementById("crypto-top");
-weatherInfo = document.getElementById("weather")
+weatherInfo = document.getElementById("weather");
+
+let key = config.API_KEY
 
 currentTime = document.getElementById("time");
 
@@ -18,48 +20,63 @@ fetch(
     imageAuthor.textContent = "By: Léonard Cotte";
   });
 
-fetch("https://api.coingecko.com/api/v3/coins/dogecoin") //replace this with football scores
-  .then((res) => res.json())
+fetch(
+  "https://api-football-v1.p.rapidapi.com/v3/standings?season=2021&league=39&team=47",
+  {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+      "x-rapidapi-key": key,
+    },
+  }
+)
+  .then((response) => response.json())
   .then((data) => {
+    console.log(data);
     cryptoTop.innerHTML = `
-   <img src=${data.image.small} />
-    <span>${data.name}</span>`;
+      <img src=${data.response[0].league.standings[0][0].team.logo} />`;
 
     cryptoInfo.innerHTML += `
-    <p>🎯: $${data.market_data.current_price.usd}</p>
-    <p>👆: $${data.market_data.high_24h.usd}</p>
-    <p>👇: $${data.market_data.low_24h.usd}</p>
-    `;
+      <p>${data.response[0].league.name} ${data.response[0].league.season}</p>
+      <p>Points: ${data.response[0].league.standings[0][0].points}</p>
+      <p>Position: ${data.response[0].league.standings[0][0].rank}</p>
+      `;
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.error(err);
+  });
 
 function updateClock() {
   let date = new Date();
-  time = date.toLocaleTimeString("en-us", { hour12: false, timeStyle: "short"});
+  time = date.toLocaleTimeString("en-us", {
+    hour12: false,
+    timeStyle: "short",
+  });
 
-  currentTime.textContent = time
+  currentTime.textContent = time;
 
-  setTimeout(updateClock, 1000)
-;
+  setTimeout(updateClock, 1000);
 }
-updateClock()
-
+updateClock();
 
 navigator.geolocation.getCurrentPosition((position) => {
-    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
-    .then(res => {
-        if (!res.ok) {
-            throw Error("Weather data not available")
-        }
-        return res.json()
+  fetch(
+    `https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw Error("Weather data not available");
+      }
+      return res.json();
     })
-    .then(data => {
-        weatherInfo.innerHTML = `
-        <img src=http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png />
+    .then((data) => {
+      weatherInfo.innerHTML = `
+        <img src=http://openweathermap.org/img/wn/${
+          data.weather[0].icon
+        }@2x.png />
         <p class="weather-temp">${Math.round(data.main.temp)}ºF</p>
         <p class="weather-city">${data.name}</p>
-        `
+        `;
     })
-    .catch(err => console.log(err))
-})
-
+    .catch((err) => console.log(err));
+});
