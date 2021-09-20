@@ -56,8 +56,8 @@ navigator.geolocation.getCurrentPosition((position) => {
     .then(data => {
         weatherInfo.innerHTML = `
         <img src=http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png />
-        <p>${Math.round(data.main.temp)}ºF</p>
-        <p>${data.name}</p>
+        <p class="weather-temp">${Math.round(data.main.temp)}ºF</p>
+        <p class="weather-city">${data.name}</p>
         `
     })
     .catch(err => console.log(err))
