@@ -39,7 +39,7 @@ fetch(
     cryptoInfo.innerHTML += `
       <p>${data.response[0].league.name} ${data.response[0].league.season}</p>
       <p>Points: ${data.response[0].league.standings[0][0].points}</p>
-      <p>Position: ${data.response[0].league.standings[0][0].rank}</p>
+      <p>Position: ${data.response[0].league.standings[0][0].rank} of 20</p>
       `;
   })
   .catch((err) => {
