@@ -8,15 +8,18 @@ html, body {
     font-family: "Lucida Console", Monaco, monospace; 
 }
 
+.my-online-users {
+    display: flex;
+    flex-direction: column;
+}
+
 .my-online-user {
     background-color: lightgreen;
     font-size: 1.5rem;
-    width: fit-content;
     padding: 0.5rem;
     display: flex;
     align-items: center;
     border: 0.1rem solid black;
-    margin: 0.5rem;
     border-radius: 0.3rem;
 }
 
