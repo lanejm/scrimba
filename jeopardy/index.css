@@ -6,7 +6,7 @@ html, body {
 
 .board {
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(5, 20%);
     grid-template-rows: repeat(4, 20%);
     height: 100vh;
 
@@ -17,14 +17,14 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 0.8rem;
     text-align: center;
 } 
 
 .my-category-title {
     background-color: lightblue;
     grid-row-start: 1;
-    text-decoration: uppercase;
+    text-transform: uppercase;
 }
 
 .my-category-clue {
