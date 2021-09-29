@@ -12,9 +12,10 @@ body {
     background: #303A52;
     color: #A5B2D3;
     padding: .5em;
-    font-family: serif;
+    font-family: sans-serif;
     height: 100vh;
     text-align:center;
+
 }
 
 header {
@@ -46,10 +47,10 @@ a.logo {
 a.cta-btn {
     margin-left: auto;
     background: #FC85AE;
-    padding: 1em;
+    padding: .2em .4em;
     display: inline-block;
     border-radius: 2em;
-    font-size: .6em;
+    font-size: .9em;
     color: #303A52;
     font-weight: bold;
 }
@@ -68,7 +69,7 @@ nav {
     transform: translateX(-50%);
     opacity: 0;
     transition: all .3s;
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -84,7 +85,7 @@ nav svg {
 nav ul li a {
     display: block;
     padding: .2em;
-    font-size: 1.8em;
+    font-size: 1.2em;
 }
 
 .selected {
@@ -114,7 +115,7 @@ h1 {
 h3 {
     color: #FC85AE;
     margin: 0;
-    font-size: 2em;
+    font-size: unset;
 }
 
 ul.data li p {
@@ -135,6 +136,13 @@ ul.secondary li p {
 }
 
 main {
-    border: 1px solid white;
+    border: unset;
 }
 
+a {
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.4em;
+}
