@@ -49,7 +49,7 @@ a.cta-btn {
     background: #FC85AE;
     padding: .2em .4em;
     display: inline-block;
-    border-radius: 2em;
+    border-radius: .2em;
     font-size: .9em;
     color: #303A52;
     font-weight: bold;
@@ -84,7 +84,7 @@ nav svg {
 
 nav ul li a {
     display: block;
-    padding: .2em;
+    padding: .8em 1em;
     font-size: 1.2em;
 }
 
@@ -110,6 +110,8 @@ h1 {
 .panel {
     background: #39445F;
     border-radius: .3em;
+    padding: .5em 1em;
+    margin-bottom: 2em;
 }
 
 h3 {
@@ -145,4 +147,8 @@ a {
 
 p {
     line-height: 1.4em;
+}
+
+.inner-wrapper {
+    padding: 1em;
 }
