@@ -113,10 +113,11 @@ nav { display: none; }
     display: inline-block;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .intro {
         display: grid;
         width: min-content;
+        text-align: right;
         margin: 0 auto;
         grid-column-gap: 1em;
         grid-template-areas: 
@@ -127,18 +128,18 @@ nav { display: none; }
     
     .intro__img {
         grid-area: img;
-        min-width: 250px;
+        min-width: 450px;
         position: relative;
         z-index: 2;
     }    
     
     .section__subtitle--intro {
         align-self: start;
-        grid-column: -1 / 1;
+        grid-column: 2 / 2;
         grid-row: 2;
         text-align: right;
         position: relative;
-        left: -1.5em;
+        left: -1.0em;
         width: calc(100% + 1.5em);
     }
 }
