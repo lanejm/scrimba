@@ -143,3 +143,38 @@ nav { display: none; }
         width: calc(100% + 1.5em);
     }
 }
+
+.about-us {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-us__img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 800px) {
+    .about-us {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+    
+    .section__title--about {
+        grid-area: title;
+    }
+
+    .about-us__item {
+        grid-area: subtitle;
+        grid-row-start: left;
+    }
+    
+    .about-us__img {
+        grid-area: text img;
+    }
+
+}
