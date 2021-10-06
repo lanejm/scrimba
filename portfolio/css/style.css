@@ -156,7 +156,7 @@ nav { display: none; }
 @media (min-width: 800px) {
     .about-us {
         display: grid;
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: 1fr 450px;
         grid-template-areas: 
             "title img"
             "subtitle img"
@@ -169,12 +169,14 @@ nav { display: none; }
     }
 
     .about-us__item {
-        grid-area: subtitle;
-        grid-row-start: left;
+        grid-area: title;
+        
     }
     
     .about-us__img {
-        grid-area: text img;
+        grid-area: img;
+        position: relative;
+        z-index: 2;
     }
 
 }
