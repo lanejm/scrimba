@@ -1,16 +1,13 @@
 import './App.css';
+import ToDoItem from './TodoItem'
 
 function App() {
   return (
-    <div className="App">
-      <input type="checkbox"/>
-      <p>Placeholder text here</p>
-      <input type="checkbox"/>
-      <p>Placeholder text here</p>
-      <input type="checkbox"/>
-      <p>Placeholder text here</p>
-      <input type="checkbox"/>
-      <p>Placeholder text here</p>
+    <div className="todo-list">
+     <ToDoItem />
+     <ToDoItem />
+     <ToDoItem />
+     <ToDoItem />
     </div>
   );
 }
