@@ -1,8 +1,17 @@
+import React from 'react'
 import './App.css';
 import ToDoItem from './TodoItem'
 import todosData from "./todoData"
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      todos: todosData
+    }
+  }
+  
+  render() {
   const todoItems = todosData.map(item => <ToDoItem key={item.id} item={item}/>)
 
   return (
@@ -10,6 +19,7 @@ function App() {
       {todoItems}
     </div>
   );
+  }
 }
 
 export default App;
