@@ -1,24 +1,40 @@
-import React from 'react'
-import './App.css';
-import ToDoItem from './TodoItem'
-import todosData from "./todoData"
+import React from "react";
+import "./App.css";
+import ToDoItem from "./TodoItem";
+import todosData from "./todoData";
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      todos: todosData
-    }
+      todos: todosData,
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
-  
-  render() {
-  const todoItems = todosData.map(item => <ToDoItem key={item.id} item={item}/>)
 
-  return (
-    <div className="todo-list">
-      {todoItems}
-    </div>
-  );
+  handleChange(id) {
+    this.setState((prevState) => {
+      const updatedTodos = prevState.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo;
+      });
+      return {
+        todos: updatedTodos,
+      };
+    });
+  }
+
+  render() {
+    const todoItems = this.state.todos.map((item) => (
+      <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
+    ));
+
+    return <div className="todo-list">{todoItems}</div>;
   }
 }
 
