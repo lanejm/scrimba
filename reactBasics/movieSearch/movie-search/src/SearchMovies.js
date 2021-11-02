@@ -9,7 +9,7 @@ function SearchMovies() {
     const searchMovies = async (event) => {
         event.preventDefault();
 
-        const url = `https://api.themoviedb.org/3/movie/550?api_key=13deff31736bd356c9f629c0f2ac1169&language=en-US&query=${query}&page=1&include_adult=false`;
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=8de257bc1c81f081807fb95847926557&language=en-US&query=${query}&page=1&include_adult=false`;
 
         if (query.trim() !== '')
             try {
