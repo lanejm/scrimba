@@ -1,13 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import './styles.css';
 
 function App() {
+  const [text, setText] = useState('')
+
+  function handleChange(e) {
+    const {value} = e.target
+    setText(value)
+  }
+
+  function wordCount(text) {
+    const wordsArr = text.trim().split(" ")
+    const filteredWords = wordsArr.filter(word => word !== "")
+    return filteredWords.length;
+  }
+
   return (
     <div>
       <h1>How fast do you type?</h1>
-      <textarea></textarea>
+      <textarea 
+        onChange={handleChange}
+        value={text}
+      />
       <h4>Time Remaining: </h4>
-      <button>Start New Game</button>
+      <button onClick={() => wordCount(text)}>Start New Game</button>
       <h1>Word Count: </h1>
     </div>
   );
