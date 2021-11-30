@@ -22,6 +22,8 @@ function App() {
       setTimeout(() => {
         setTimeRemaining((time) => time - 1);
       }, 1000);
+    } else if(timeRemaining === 0) {
+      setIsTimeRunning(false)
     }
   }, [timeRemaining, isTimeRunning]);
 
