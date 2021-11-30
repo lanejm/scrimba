@@ -3,6 +3,7 @@ import './styles.css';
 
 function App() {
   const [text, setText] = useState('')
+  const [timeRemaining, setTimeRemaining] = useState(5)
 
   function handleChange(e) {
     const {value} = e.target
@@ -22,7 +23,7 @@ function App() {
         onChange={handleChange}
         value={text}
       />
-      <h4>Time Remaining: </h4>
+      <h4>Time Remaining: {timeRemaining}</h4>
       <button onClick={() => wordCount(text)}>Start New Game</button>
       <h1>Word Count: </h1>
     </div>
