@@ -45,7 +45,7 @@ function App() {
   return (
     <div>
       <h1>How fast do you type?</h1>
-      <textarea onChange={handleChange} value={text} />
+      <textarea onChange={handleChange} value={text} disabled={!isTimeRunning}/>
       <h4>Time Remaining: {timeRemaining}</h4>
       <button onClick={startGame} disabled={isTimeRunning}>Start New Game</button>
       <h1>Word Count: {wordCount} </h1>
