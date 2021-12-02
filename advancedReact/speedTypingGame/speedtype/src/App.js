@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 
 function App() {
-  const STARTING_TIME = 10
+  const STARTING_TIME = 10;
 
   const [text, setText] = useState("");
   const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME);
-  const [isTimeRunning, setIsTimeRunning] = useState(false)
-  const [wordCount, setWordCount] = useState(0)
-  const textBoxRef = useRef(null)
+  const [isTimeRunning, setIsTimeRunning] = useState(false);
+  const [wordCount, setWordCount] = useState(0);
+  const textBoxRef = useRef(null);
 
   function handleChange(e) {
     const { value } = e.target;
@@ -22,16 +22,17 @@ function App() {
   }
 
   function startGame() {
-    setIsTimeRunning(true)
-    setTimeRemaining(STARTING_TIME)
-    setText('')
-    textBoxRef.current.focus()
+    setIsTimeRunning(true);
+    setTimeRemaining(STARTING_TIME);
+    setText("");
+    textBoxRef.current.disabled = false;
+    textBoxRef.current.focus();
   }
 
   function endGame() {
-    setIsTimeRunning(false)
-    const numWords = calculateWordCount(text)
-    setWordCount(numWords)
+    setIsTimeRunning(false);
+    const numWords = calculateWordCount(text);
+    setWordCount(numWords);
   }
 
   useEffect(() => {
@@ -39,17 +40,24 @@ function App() {
       setTimeout(() => {
         setTimeRemaining((time) => time - 1);
       }, 1000);
-    } else if(timeRemaining === 0) {
-      endGame()
+    } else if (timeRemaining === 0) {
+      endGame();
     }
   }, [timeRemaining, isTimeRunning]);
 
   return (
     <div>
       <h1>How fast do you type?</h1>
-      <textarea ref={textBoxRef} onChange={handleChange} value={text} disabled={!isTimeRunning}/>
+      <textarea
+        ref={textBoxRef}
+        onChange={handleChange}
+        value={text}
+        disabled={!isTimeRunning}
+      />
       <h4>Time Remaining: {timeRemaining}</h4>
-      <button onClick={startGame} disabled={isTimeRunning}>Start New Game</button>
+      <button onClick={startGame} disabled={isTimeRunning}>
+        Start New Game
+      </button>
       <h1>Word Count: {wordCount} </h1>
     </div>
   );
