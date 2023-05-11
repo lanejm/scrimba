@@ -39,4 +39,4 @@ function awardBonuses(){
 
 }
 
-awardBonuses();
+awardBonuses()
